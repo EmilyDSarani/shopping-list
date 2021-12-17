@@ -50,6 +50,8 @@ export default function List() {
     //setting up the reducer
     const [text, setText] = useState('')
     // const [edit, setEdit] = useState(false)
+    //value= {edit ? '' : text}
+    //^ this can be used to make sure the editing does not render into the Add input 
     const [people, dispatch] = useReducer(personReducer, initialPeople)
 
 
@@ -84,7 +86,8 @@ export default function List() {
             onAddChild={handleAdd}
             text={text}
             setText={setText} />
-            <ChildrenList editPeople={handleEdit} deletePeople={handleDelete} people={people}/>
+            <ChildrenList editPeople={handleEdit} deletePeople={handleDelete} people={people}
+            setText={setText}/>
         </div>
     )
 }
