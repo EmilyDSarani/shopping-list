@@ -12,22 +12,12 @@ export default function AddChild({ onAddChild, setText, text }) {
     
     return (
         <div>
-            <form onSubmit={(e) => onAddChild(e)}>
-                <input 
-                placeholder="Sort List"
-                value={text}
-                onChange={(e) => setText(e.target.value)} />
-
-                <button
-                type="submit">
-                    NiceList
-                </button>
-                {/* <button
-                type="submit">
-                    NaughtyList
-                </button> */}
+            <form onSubmit={onAddChild}>
+                <input value={text} onChange={(e)=> setText(e.target.value)} />
+                <button>Add Child</button>
 
             </form>
+           
         </div>
     )
 }

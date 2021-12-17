@@ -1,11 +1,11 @@
-import NiceList from './views/NiceList/NiceList'
+import List from './views/List/List'
 
 
 export default function App() {
   return (
     <div>
      
-        <NiceList />
+        <List />
       
     </div>
   )
