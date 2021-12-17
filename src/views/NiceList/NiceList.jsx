@@ -23,11 +23,11 @@ function personReducer(people, action){
             }]
         }
         case 'change': {
-            return people.map((person)=>{
-                if (person.id === action.person.id){
-                    return action.person
+            return people.map((peep)=>{
+                if (peep.id === action.peep.id){
+                    return action.peep
                 }
-                return person
+                return peep
             })
         }
     }
@@ -37,6 +37,7 @@ function personReducer(people, action){
 export default function NiceList() {
     //setting up the reducer
     const [text, setText] = useState('')
+    const [edit, setEdit] = useState(false)
     const [people, dispatch] = useReducer(personReducer, initialPeople)
 
 
@@ -53,7 +54,7 @@ export default function NiceList() {
         e.preventDefault()
         dispatch({
             type:'change',
-            text:text
+            people:people
         })
         }
 
@@ -64,7 +65,7 @@ export default function NiceList() {
             onAddChild={handleAdd}
             text={text}
             setText={setText} />
-            <ChildrenList people={people} onChangeChild={handleChange}/>
+            <ChildrenList edit={edit} setEdit={setEdit} people={people} onChangeChild={handleChange}/>
         </div>
     )
 }
