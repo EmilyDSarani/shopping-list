@@ -13,7 +13,7 @@ const initialPeople =[
 //creating the logic for the reducer
 function personReducer(people, action){
     switch(action.type){
-        case 'addNice':{
+        case 'add':{
             return [ ...people, {
                 //math.random for the id here
                 id: Math.floor(Math.random() * 1000),
@@ -21,6 +21,14 @@ function personReducer(people, action){
                 done: false
 
             }]
+        }
+        case 'change': {
+            return people.map((person)=>{
+                if (person.id === action.person.id){
+                    return action.person
+                }
+                return person
+            })
         }
     }
   
@@ -36,10 +44,18 @@ export default function NiceList() {
     const handleAdd = (e) =>{
     e.preventDefault()
     dispatch({
-        type:'added',
+        type:'add',
         text:text
     })
     }
+
+    const handleChange = (e) =>{
+        e.preventDefault()
+        dispatch({
+            type:'change',
+            text:text
+        })
+        }
 
 //do the add logic here, maybe, gameday decision
     return (
@@ -48,7 +64,7 @@ export default function NiceList() {
             onAddChild={handleAdd}
             text={text}
             setText={setText} />
-            <ChildrenList people={people} />
+            <ChildrenList people={people} onChangeChild={handleChange}/>
         </div>
     )
 }
