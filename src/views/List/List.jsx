@@ -63,10 +63,10 @@ export default function List() {
     })
     }
 //this has to match the naming convention from the CASE
-    const handleEdit= (id) =>{
+    const handleEdit= (person) =>{
         dispatch({
             type:'edit',
-            id
+            person
         })
         }
 //this has to have the id in it because we dont want to delete the whole damn page, just the one thing. 
