@@ -5,9 +5,9 @@ import ChildrenList from '../../components/ChildrenList/ChildrenList'
 
 //setting an initial state for the reducer to grab
 const initialPeople =[
-    {id: 0, text: 'Cindy Lou Who', done: false},
-    {id: 1, text:'Rudolph', done: false},
-    {id: 2, text:'Frosty', done: false}
+    {id: 0, text: 'Cindy Lou Who', done: false}
+    // {id: 1, text:'Rudolph', done: false},
+    // {id: 2, text:'Frosty', done: false}
 ]
 
 //creating the logic for the reducer
@@ -62,7 +62,9 @@ export default function List() {
     dispatch({
         type:'add',
         text:text
+
     })
+        setText('')
     }
 //this has to match the naming convention from the CASE
     const handleEdit= (person) =>{
@@ -82,6 +84,8 @@ export default function List() {
 //do the add logic here, maybe, gameday decision
     return (
         <div>
+            <h1 aria-label='head'>Santa Claus List</h1>
+            <p>Welcome new elf recruit. Santa is a busy man this time of year. It is your duty to add in people to the list that he needs to deliver toys to this year. Remember to Check the list twice for edits and then send it off to the present deparment. </p>
             <AddChild 
             onAddChild={handleAdd}
             text={text}

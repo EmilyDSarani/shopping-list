@@ -10,6 +10,7 @@ if(edit) {
     peopleContent = (
         <div>
             <input
+            aria-label='edit-input'
             value={text}
             onChange={(e)=>{
                 editPeople({
@@ -18,6 +19,7 @@ if(edit) {
                 })
             }} />
             <button 
+            aria-label='save-item'
             type='button'
             onClick={()=> setEdit(false)}
             >Send to Elves</button>
@@ -27,7 +29,9 @@ if(edit) {
     peopleContent = (
         <div>
             <p>{text}</p>
-            <button type='button'
+            <button
+            aria-label='edit-item'
+             type='button'
             onClick={()=> {
                 setEdit(true)
                 setText(text)
@@ -44,7 +48,7 @@ if(edit) {
          {peopleContent}
 
 
-          <button onClick={()=> deletePeople(id)} > delete </button>
+          <button aria-label='delete-item' onClick={()=> deletePeople(id)} > delete </button>
 
         </div>
     )

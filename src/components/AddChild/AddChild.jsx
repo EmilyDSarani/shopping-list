@@ -13,8 +13,8 @@ export default function AddChild({ onAddChild, setText, text }) {
     return (
         <div>
             <form onSubmit={onAddChild}>
-                <input value={text} onChange={(e)=> setText(e.target.value)} />
-                <button>Add Child</button>
+                <input aria-label='add-input' value={text} onChange={(e)=> setText(e.target.value)} />
+                <button  aria-label='add-item'>Add Child</button>
 
             </form>
            
